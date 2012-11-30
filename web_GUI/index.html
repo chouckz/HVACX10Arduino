@@ -1,0 +1,1885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="jquery-1.8.2.min.js"></script>
+	<script src="jquery.mobile-1.2.0.min.js"></script> 
+		<link rel="stylesheet" href="jquery.mobile-1.2.0.min.css" />
+
+	<!--	<script src="easyjquery.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	
+<script src="jquery.xdomainajax.js"></script> 
+
+   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.mobile-1.1.0.min.js"></script> 
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+ -->
+  <title>HVAC & x10 Control</title>
+  <style type="text/css">
+<!--
+html, body {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  border: 0px ;
+} 
+
+@font-face {
+ font-family: digital_font;
+ src: url("digital-7.eot") /* EOT file for IE */
+}
+@font-face {
+ font-family: digital_font;
+ src: url("digital-7.ttf") /* TTF file for CSS3 browsers */
+}
+
+.temp_cap {
+	font-family: digital_font;
+	font-size: 108px;	
+}
+.h_cap {
+	font-family: digital_font;
+	font-size: 35px;	
+}
+
+.dn {
+	//vertical-align:super;
+}
+
+#bar {
+	position:absolute;
+	//top:22px;
+	//left:161px;
+	//background-color:#d6e5ff;
+			opacity: 0.5;
+}
+
+.bars {
+	//z-index:9;
+	//background: #000000;
+	background-color:#d4a0d5;
+	//display: inline;
+	float:left;
+	//display:inline;
+	position: absolute;
+	// position: relative;
+//horizontal-align: baseline;
+	bottom: 0;
+	   display: block;
+//vertical-align: middle;
+	//vertical-align:text-bottom;
+}
+
+#view {
+	//float:left;
+	//	position:relative;
+	//background-color:#ffbcfe;
+	opacity: 0.1;
+}
+#loading {
+	width: 300;
+	height: 150;
+	top:150px;
+	left:5px;
+	position:absolute;
+}
+
+#in1-1_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	font-family: digital_font;
+	color: #686868;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in1-2_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #a09701;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in1-3_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #236a01;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in1-4_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #00339b;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in2-0_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	font-family: digital_font;
+	color: #000000;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in3-1_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #a56501;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in3-2_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #5f745e;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+#in4-0_temp {
+	position:absolute;
+	top:81px;
+	left:188px;
+	color: #4f2f1f;
+	font-family: digital_font;
+	font-size: 50px;
+	//opacity: 0.5;
+}
+.temp_dec {
+    font-family: digital_font;
+	font-size: 55px;
+}
+.temp_deg {
+	font-family: digital_font;
+	font-weight: bold;
+	font-size: 28px;
+	font-style: italic;
+}
+.labels {
+	font-size: 23px;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+#in_t {
+	position:absolute;
+	top:35px;
+	left:19px;
+	text-align:right;
+	width: 155px;
+	color: #000;
+	height: auto;
+	vertical-align: top;
+}
+#in_h {
+	position:absolute;
+	top:65px;
+	left:127px;
+	color: #038100;
+}
+
+#in_c {
+	position:absolute;
+	top:35px;
+	left:135px;
+	color: #000;
+}
+#in_plenum {
+	position:absolute;
+	top:81px;
+	left:188px;
+	font-family: digital_font;
+	font-size: 50px;
+}
+
+#state_icon {
+	position:absolute;
+	top:31px;
+	left:179px;
+}
+
+#inside {
+position:relative;
+  left: 0px; 
+  top: 0px;
+  //background-color:#fee2e2;
+  //width: 110px;
+	//width: auto;
+	//height: auto;
+}
+
+#house {
+position:absolute;
+  left: 30px; 
+  top: 0px;
+  //  background-color:#caffdd;
+	width: auto;
+	height: auto;
+}
+
+#lightB {
+	position:absolute;
+	top:45px;
+	left:0px;
+	//background-color:#ffbcfe;
+	//opacity: 0.3;
+}
+
+#lightF {
+	position:absolute;
+	top:45px;
+	left:253px;
+	//background-color:#ffbcfe;
+	//opacity: 0.3;
+}
+
+#kn {
+	position:absolute;
+	top:5px;
+	//opacity: 0.3;
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #CCC;
+	//text-shadow: 3px 3px 3px #CCC;
+}
+
+#x10-15 {
+	opacity: 0.3;
+}
+
+#x10-16 {
+	opacity: 0.3;
+}
+
+#garage {
+	position:absolute;
+	top:79px;
+	left:225px;
+	///background-color:#ffbcfe;
+}
+
+#dn {
+	position:absolute;
+	top:5px;
+	left:5px;
+		opacity: 0.1;
+	///background-color:#ffbcfe;
+}
+
+
+#outside {
+	position:relative;
+	//top:0px;
+	bottom:157px;
+	left:250px;
+	display: block;
+	//background-color:#d6e5ff;
+	width: auto;
+	//height: auto;
+}
+#out {
+	position:absolute;
+	top:0px;
+	//left:16px;
+	color: #CCC;
+	text-align: left;
+	font-size: 23px;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.pressure {
+	color: #24779f;//959595;
+	font-size: 23px;
+		font-family: digital_font;
+	//font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.pressure_mm {
+	color: #24779f;//959595;
+	font-size: 10px;
+		font-family: digital_font;
+	//font-family: "Arial Black", Gadget, sans-serif;
+}
+
+#press {
+	position:absolute;
+	
+			opacity: 0.3;
+}
+
+
+#out_c {
+	position:absolute;
+		opacity: 0.5;
+	//top:10px;
+//	left:160px;
+}
+#out_h {
+	position:absolute;
+	color: #9ed17d;
+}
+
+#out_t {
+	position:absolute;
+	text-align: right;
+		opacity: 0.5;
+	//width: 195px;
+}
+
+.ui-select {
+          display: inline !important; 
+          position: relative !important; 
+    }
+	
+.activeH {
+	color: #fec4c4;
+}
+
+.activeL {
+	color: #c3ffc4;
+}
+-->
+  </style>
+
+  
+  </head>
+ 		
+  <body onorientationchange="onChanged();" onload="onLoad() ;">
+<div  id="page">   
+  <div  id="view">   
+
+	<div  id="inside">   		
+			<div id="dn" ><img src="1x1.gif"  id="dn_pic"  width="100%" height="100%"/></div> 
+		<div  id="house"> 			
+			<img src="house.gif" name="house_pic" id="house_pic"/>		
+			<div id="in_t"><span class="temp_cap" id="in_temp">-</span><span class="temp_dec" id="in_temp_dec">-</span></div>
+			<div id="in1-1_temp" class="temp_add" onclick="x10(16)">-</div>
+			<div id="in1-2_temp" class="temp_add">-</div>
+			<div id="in1-3_temp" class="temp_add">-</div>
+			<div id="in1-4_temp" class="temp_add" onclick="x10(15)">-</div>
+			<div id="in3-1_temp" class="temp_add" onclick="x10(16)">-</div>
+			<div id="in3-2_temp" class="temp_add">-</div>
+			<div id="in4-0_temp" class="temp_add" onclick="garage()">-</div>
+			<div id="in_h" onclick="x10(16)"><span class="h_cap" id="in_hum">-%</span></div>
+			<div id="in_c"><span class="temp_deg" >°c</span></div>
+			<div id="state_icon" ><img src="1x1.gif"  id="state_icon_pic" alt="0" /></div> 
+
+		</div>			
+		<div id="lightB"><img src="lightB.gif" width="100%" height="100%" onclick="x10(16)" id="x10-16"/></div>
+		<div id="lightF"><img src="lightF.gif" width="100%" height="100%" onclick="x10(15)" id="x10-15"/></div>
+		<div id="garage" onclick="garage()"><img src="garage.gif" width="100%" height="100%"/></div>
+						<div id="kn">-kn</div>
+	</div>			
+	<div id="outside"><div id="out"><b>OUT</b></div> 				<div id="out_c""><span class="temp_deg" >°c</span></div>
+				<div id="out_h"><span class="h_cap" id="out_hum">-%</span></div>
+				<div id="bar" style="height:32px;width:48px;" class="row">
+						<div class="bars" id="bar_0a" style="width:2.083%;left:0%;"></div>
+						<div class="bars" id="bar_0" style="width:2.083%;left:2.083%;"></div>
+						<div class="bars" id="bar_1a" style="width:2.083%;left:4.167%; "></div>
+						<div class="bars" id="bar_1" style="width:2.083%;left:6.250%; "></div>
+						<div class="bars" id="bar_2a" style="width:2.083%;left:8.333%; "></div>
+						<div class="bars" id="bar_2" style="width:2.083%;left:10.417%; "></div>
+						<div class="bars" id="bar_3a" style="width:2.083%;left:12.5%; "></div>
+						<div class="bars" id="bar_3" style="width:2.083%;left:14.583%; "></div>
+						<div class="bars" id="bar_4a" style="width:2.083%;left:16.667%; "></div>
+						<div class="bars" id="bar_4" style="width:2.083%;left:18.75%; "></div>
+						<div class="bars" id="bar_5a" style="width:2.083%;left:20.833%; "></div>
+						<div class="bars" id="bar_5" style="width:2.083%;left:22.917%; "></div>
+						<div class="bars" id="bar_6a" style="width:2.083%;left:25%; "></div>
+						<div class="bars" id="bar_6" style="width:2.083%;left:27.083%; "></div>
+						<div class="bars" id="bar_7a" style="width:2.083%;left:29.167%; "></div>
+						<div class="bars" id="bar_7" style="width:2.083%;left:31.25%; "></div>
+						<div class="bars" id="bar_8a" style="width:2.083%;left:33.333%; "></div>
+						<div class="bars" id="bar_8" style="width:2.083%;left:35.417%; "></div>
+						<div class="bars" id="bar_9a" style="width:2.083%;left:37.5%; "></div>
+						<div class="bars" id="bar_9" style="width:2.083%;left:39.583%; "></div>
+						<div class="bars" id="bar_10a" style="width:2.083%;left:41.667%; "></div>
+						<div class="bars" id="bar_10" style="width:2.083%;left:43.750%; "></div>
+						<div class="bars" id="bar_11a" style="width:2.083%;left:45.833%; "></div>
+						<div class="bars" id="bar_11" style="width:2.083%;left:47.917%; "></div>
+						<div class="bars" id="bar_12a" style="width:2.083%;left:50%; "></div>
+						<div class="bars" id="bar_12" style="width:2.083%;left:52.083%; "></div>
+						<div class="bars" id="bar_13a" style="width:2.083%;left:54.167%; "></div>
+						<div class="bars" id="bar_13" style="width:2.083%;left:56.250%; "></div>
+						<div class="bars" id="bar_14a" style="width:2.083%;left:58.333%; "></div>
+						<div class="bars" id="bar_14" style="width:2.083%;left:60.417%; "></div>
+						<div class="bars" id="bar_15a" style="width:2.083%;left:62.5%; "></div>
+						<div class="bars" id="bar_15" style="width:2.083%;left:64.583%; "></div>
+						<div class="bars" id="bar_16a" style="width:2.083%;left:66.667%; "></div>
+						<div class="bars" id="bar_16" style="width:2.083%;left:68.75%; "></div>
+						<div class="bars" id="bar_17a" style="width:2.083%;left:70.833%; "></div>
+						<div class="bars" id="bar_17" style="width:2.083%;left:72.917%; "></div>
+						<div class="bars" id="bar_18a" style="width:2.083%;left:75%; "></div>
+						<div class="bars" id="bar_18" style="width:2.083%;left:77.083%; "></div>
+						<div class="bars" id="bar_19a" style="width:2.083%;left:79.167%; "></div>
+						<div class="bars" id="bar_19" style="width:2.083%;left:81.25%; "></div>
+						<div class="bars" id="bar_20a" style="width:2.083%;left:83.333%; "></div>
+						<div class="bars" id="bar_20" style="width:2.083%;left:85.417%; "></div>
+						<div class="bars" id="bar_21a" style="width:2.083%;left:87.5%; "></div>
+						<div class="bars" id="bar_21" style="width:2.083%;left:89.583%; "></div>
+						<div class="bars" id="bar_22a" style="width:2.083%;left:91.667%; "></div>
+						<div class="bars" id="bar_22" style="width:2.083%;left:93.75%; "></div>
+						<div class="bars" id="bar_23a" style="width:2.083%;left:95.833%; "></div>
+						<div class="bars" id="bar_23" style="width:2.083%;left:97.917%; "></div>
+						
+			</div>
+			
+			<div id="press"><span class="pressure" id="pressure">-</span><span class="pressure_mm">mm</span></div>
+		        		<div id="out_t"><span class="temp_cap" id="out_temp">-</span><span class="temp_dec" id="out_temp_dec">-</span></div>
+
+		</div>
+	
+</div>	 
+<div id="loading" align="center" >Loading ...</div> 
+	<div data-role="content">
+		<div class="content-primary" id="content-primary">
+
+    <div id="hvac">    
+		<div class="ui-grid-a" align="right" >
+				<div class="ui-block-a">
+					<select name="select-temp" id="select-temp" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15.00" state="1">cool  to 15°</option>
+						<option value="18.00" state="1">cool  to 18°</option>
+						<option value="19.00" state="1">cool  to 19°</option>
+	   					<option value="20.00" state="1">cool  to 20°</option>
+						<option value="21.00" state="1">cool  to 21°</option>
+						<option value="22.00" state="1">cool  to 22°</option>
+   						<option value="23.00" state="1">cool  to 23°</option>
+						<option value="24.00" state="1">cool  to 24°</option>
+						<option value="25.00" state="1">cool  to 25°</option>
+						<option value="0.00" state="4">ventilation</option>
+				</select>	
+			</div>
+			<div class="ui-block-b" align="left" >	
+                   <select name="select-delay" id="select-delay" data-native-menu="false" data-mini="false"  data-inline="true">>
+						<option value="30">for 30 min</option>
+						<option value="60">for 1 h</option>
+   						<option value="120">for 2 h</option>
+						<option value="240">for 4 h</option>
+						<option value="0">forever</option>
+				</select>
+				</div>
+			</div >  
+		<div class="ui-grid-solo" align="center">
+			 <button id='set_button' onclick='do_submit()' type="button" data-theme="c">SET</button>
+			    	</div >  
+		
+<hr id="hr1">
+</div>
+
+
+
+
+
+
+<span id="debug"></span>
+
+	<div data-role="collapsible-set" data-collapsed="true"  data-theme="b" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" id="col_set">
+			<div data-role="collapsible">
+				<h3><span class="mode" id="h-g0">?</span></h3>
+				<select name="action-g0" id="action-g0" data-native-menu="false" data-mini="false"  data-inline="true">
+						<option value="1">ON</option>
+						<option value="0">OFF</option>
+   						<option value="9">Split</option>
+				</select>
+		
+	<span class="dn" id="d-g0" style="vertical-align:super;">Day:</span>		
+	   	<select name="select-d" id="select-d" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="05">5:00</option>
+						<option value="06">6:00</option>
+						<option value="07">7:00</option>
+						<option value="08">8:00</option>
+				</select>
+			    	<span class="dn" id="n-g0" style="vertical-align:super;">Night:</span>
+				<select name="select-n" id="select-n" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="18">6:00 pm</option>
+						<option value="19">7:00 pm</option>
+						<option value="20">8:00 pm</option>
+						<option value="21">9:00 pm</option>
+						<option value="22">10:00 pm</option>
+						<option value="23">11:00 pm</option>
+				</select>	
+				<div name="time">
+				</div>
+			</div> <!--	 GENERAL-->	
+			<div data-role="collapsible"  id="g1">
+				<h3>Bedrooms - <span class="mode" id="h-g1">?</span></h3>
+
+				<select  name="action-g1" id="action-g1" data-native-menu="false" data-mini="false"  data-inline="true">
+						<option value="1">ON</option>
+						<option value="2">Day&Night</option>
+						<option value="3">Day</option>
+						<option value="0">OFF</option>
+						<option value="9">Split</option>
+				</select>
+			    <div data-role="fieldcontain" align=left> 
+	<span class="dn" id="g1d"> <span style="vertical-align:super;">Day:</span>
+	     <select name="select-dtem-g1" id="select-dtem-g1" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option> 
+   						<option value="24">24°</option>
+				</select></span>	
+				  	<span class="dn" id="g1n"><span style="vertical-align:super;">Night:</span>
+				<select name="select-ntem-g1" id="select-ntem-g1" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option> 
+   						<option value="24">24°</option>
+				</select>
+				</span>
+				</div>
+					<div data-role="collapsible">
+						<h3>Bath - <span class="mode" id="h-g1-1">?</span></h3>
+
+							<select name="action-g1-1" id="action-g1-1" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+							<div data-role="fieldcontain" align=left id="col-g1-1"> 						
+								<span class="dn" id="g1-1d"><span style="vertical-align:super;">Day:</span>	
+								<select name="select-dtem-g1-1" id="select-dtem-g1-1" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option> 
+								</select>
+								</span>
+								<span class="dn" id="g1-1n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g1-1" id="select-ntem-g1-1" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+							</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse-->	
+						<div data-role="collapsible">
+						<h3>Yellow - <span class="mode" id="h-g1-2">?</span></h3>
+
+							<select name="action-g1-2" id="action-g1-2" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>						
+							<div data-role="fieldcontain" align=left id="col-g1-2"> 
+							<span class="dn" id="g1-2d"><span style="vertical-align:super;">Day:</span>	
+								<select name="select-dtem-g1-2" id="select-dtem-g1-2" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select></span>
+								<span class="dn" id="g1-2n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g1-2" id="select-ntem-g1-2" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+							</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse-->	
+						<div data-role="collapsible" >
+						<h3>Green - <span class="mode" id="h-g1-3">?</span></h3>
+
+							<select name="action-g1-3" id="action-g1-3" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+						<div data-role="fieldcontain" align=left  id="col-g1-3"> 							
+								<span class="dn" id="g1-3d"><span style="vertical-align:super;">Day:</span>	
+								<select name="select-dtem-g1-3" id="select-dtem-g1-3" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select></span>
+								<span class="dn" id="g1-3n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g1-3" id="select-ntem-g1-3" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+							</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse-->	
+					<div data-role="collapsible">
+						<h3>Blue - <span class="mode" id="h-g1-4">?</span></h3>
+
+							<select name="action-g1-4" id="action-g1-4" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+						<div data-role="fieldcontain" align=left id="col-g1-4"> 					
+								<span class="dn" id="g1-4d"><span style="vertical-align:super;">Day:</span>	
+								<select name="select-dtem-g1-4" id="select-dtem-g1-4" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option> 
+									<option value="24">24°</option>
+								</select></span>
+								<span class="dn" id="g1-4n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g1-4" id="select-ntem-g1-4" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+						</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse R-->	
+				</div><!--/collapse G-->	
+	<div data-role="collapsible">
+				<h3>Living - <span class="mode" id="h-g2">?</span></h3>
+
+				<select name="action-g2" id="action-g2" data-native-menu="false" data-mini="false"  data-inline="true">
+						<option value="1">ON</option>
+						<option value="2">Day&Night</option>
+						<option value="3">Day</option>
+						<option value="0">OFF</option>
+				</select>
+				    <div data-role="fieldcontain" align=left> 			
+	<span class="dn" id="g2d"><span style="vertical-align:super;">Day:</span>
+	   	<select name="select-dtem-g2" id="select-dtem-g2" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option> 
+				</select></span>	
+			    	<span class="dn" id="g2n"><span style="vertical-align:super;">Night:</span>
+				<select name="select-ntem-g2" id="select-ntem-g2" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option>
+				</select>
+				</span>
+				</div><!--/line upG-->	
+
+				</div><!--/collapse G-->	
+				<div data-role="collapsible">
+				<h3>Low - <span class="mode" id="h-g3">?</span></h3>
+
+				<select name="action-g3" id="action-g3" data-native-menu="false" data-mini="false"  data-inline="true">
+						<option value="1">ON</option>
+						<option value="2">Day&Night</option>
+						<option value="3">Day</option>
+						<option value="0">OFF</option>
+						<option value="9">Split</option>
+				</select>
+				    <div data-role="fieldcontain" align=left> 				
+	<span class="dn" id="g3d"><span style="vertical-align:super;">Day:</span>
+	   	<select name="select-dtem-g3" id="select-dtem-g3" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option>
+				</select></span>	
+			    	<span class="dn" id="g3n"><span style="vertical-align:super;">Night:</span>
+				<select name="select-ntem-g3" id="select-ntem-g3" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option>
+				</select>
+				</span>
+				</div>
+						<div data-role="collapsible">
+						<h3>Lab - <span class="mode" id="h-g3-1">?</span></h3>
+
+							<select name="action-g3-1" id="action-g3-1" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+							<div data-role="fieldcontain" align=left id="col-g3-1"> 
+							<span class="dn" id="g3-1d"><span style="vertical-align:super;">Day:</span>	
+								<select name="select-dtem-g3-1" id="select-dtem-g3-1" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select></span>
+								<span class="dn" id="g3-1n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g3-1" id="select-ntem-g3-1" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+							</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse-->	
+					<div data-role="collapsible">
+						<h3>Guest - <span class="mode" id="h-g3-2">?</span></h3>
+
+							<select name="action-g3-2" id="action-g3-2" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+							<div data-role="fieldcontain" align=left id="col-g3-2"> 
+							<span class="dn" id="g3-2d"><span style="vertical-align:super;">Day:</span>
+								<select name="select-dtem-g3-2" id="select-dtem-g3-2" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select></span>	
+								<span class="dn" id="g3-2n"><span style="vertical-align:super;">Night:</span>
+								<select name="select-ntem-g3-2" id="select-ntem-g3-2" data-native-menu="false" data-mini="false" data-inline="true">
+									<option value="15">15°</option>					
+									<option value="17">17°</option>
+									<option value="18">18°</option>
+									<option value="19">19°</option>
+									<option value="20">20°</option>
+									<option value="21">21°</option>
+									<option value="22">22°</option>
+									<option value="23">23°</option>
+									<option value="24">24°</option>
+								</select>
+							</span>
+						</div><!--/lineup -->	
+					</div><!--/collapse R-->	
+				</div><!--/collapse G-->	
+	<div data-role="collapsible">
+				<h3>Basement - <span class="mode" id="h-g4">?</span></h3>
+				<select name="action-g4" id="action-g4" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="1">ON</option>
+								<option value="2">Day&Night</option>
+								<option value="3">Day</option>
+								<option value="0">OFF</option>
+							</select>
+				<div data-role="fieldcontain" align=left> 
+		<span class="dn" id="g4d"><span style="vertical-align:super;">Day:</span>	
+	   	<select name="select-dtem-g4" id="select-dtem-g4" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option>  
+				</select></span>
+			    	<span class="dn" id="g4n"><span style="vertical-align:super;">Night:</span>
+				<select name="select-ntem-g4" id="select-ntem-g4" data-native-menu="false" data-mini="false" data-inline="true">
+						<option value="15">15°</option>					
+						<option value="17">17°</option>
+						<option value="18">18°</option>
+						<option value="19">19°</option>
+	   					<option value="20">20°</option>
+						<option value="21">21°</option>
+						<option value="22">22°</option>
+   						<option value="23">23°</option>
+   						<option value="24">24°</option> 
+				</select>
+			</span>
+				</div><!--/line upG-->	
+				</div><!--/collapse G-->	
+					<div data-role="collapsible">
+				<h3><i>Override<span class="mode" id="override"></span></i></h3>
+				<div data-role="fieldcontain" align=left>
+ 				<select name="select-x10" id="select-x10" data-native-menu="false" data-mini="false" data-inline="true">>
+								<option value="1">Bath</option>
+								<option value="2" selected="selected">Yellow</option>
+								<option value="3">Green</option>
+								<option value="4">Blue</option>
+								<option value="5">Living</option>
+								<option value="6">Lab</option>
+								<option value="7">Guest</option>
+								<option value="8">Basem</option>
+								<option value="16">Front</option>
+								<option value="15">Back</option>
+						</select>
+						   <select name="select-x10delay" id="select-x10delay" data-native-menu="false" data-mini="false"  data-inline="true">
+								<option value="5">for 5m</option>
+								<option value="15">for 15m</option>
+								<option value="30"  selected="selected">for 30m</option>
+								<option value="60">for 1 h</option>
+								<option value="120">for 2 h</option>
+								<option value="240">for 4 h</option>
+						</select>
+					<button id='set_x10' type="v" data-theme="b" onclick='do_override()' >Override</button>
+
+				</div><!--/line upG-->	
+				</div><!--/collapse G-->	
+		<div id='apply'><button  id='apply_button' onclick='do_apply()' type="v" data-theme="b" >Apply</button>		</div>	
+		
+	<hr>	</div><!--/collapse set-->	
+	</div>
+</div>
+		
+
+		<!--		<input type='button' onclick='$("#in_t").css("text-shadow", "0px 0px 3px #FF5555");' value='test' id='garage'/>		<div data-role="fieldcontain" align=left > 
+<input type='button' onclick='x10(15)' value='DriveWay light' id='x10_1'/>
+<input type='button' onclick='x10(16)' value='BackYard light' id='x10_2'/>
+
+		</div>-->
+<script type="text/javascript">
+				 
+/// Harcoded inintial valriables// 686868  c4b901  236a01  00339b
+//a56501 5f745e 
+//4f2f1f
+
+var state_pic = new Array ('1x1.gif','cool.gif','heat.gif','heat_aux.gif','vent.gif','heater.gif','heaters.gif');			 
+var upd_interval = 60;  //reload valies from adriono every X seconds or afrom an interval send from ardiono upd_interval=
+var heat_temp = 20;  //will suggest heating if current outdoor temp below this, if higher will suggest cooling
+var delta_temp = 0.5;
+var poolt = 5;//temp below that x10 pools are active so each rool with two or more heaters will turn them all on when needed
+var poolf = 4;// factor to multiply delta_temp and of delta_temp X poolf + CURENT ROOM TEMP less then needed temp will also activate all room x10 pool
+var local_url = String(window.location);
+local_url = local_url.substring(local_url.indexOf('?')+1);
+ //$("#loading").text("Loading from "+local_url);
+var home_domain = "xxx.slyip.net";
+var home_ip = 'x';
+var browser_ip = 'y';
+var start ; //time when we got NTP time from web
+var end;
+var ntp; //last NTP time we got from web
+
+var time_left;
+var in_temp ; 
+var out_temp;
+
+var active ;
+var state; 
+var s_state; //shadow state, real mesutements
+var set_temp ;
+var in_plenum;
+//var submit = 1; //allow to send data on SET button(select) click(change)
+var news = 1;
+
+var bar;// = "90123456789abcdefedcba9f";
+var in_config ="";//= "106001900g111991414r122112219r223001718r324121718r425131718g216131718g317111718r128121718r229101718g420031718" ;
+	/* x - первый  знак  это тип состояния 
+	 xx - 2 знака время( час) включения 
+	 xx- 2 знака минуты включения 
+	 xx - 2 знака время( час) выключения
+	 x- 2 знака минуты выключения 
+	 Gn это номер группы (для меня этаж)
+	 xx - 2 знака текущей (средней по всем комнатам) температуры в группе/этаже
+	 х- знак  это тип состояния для всей группы. 0 - отопление не включено, 1 - включено. Он имеет значение если в группе нет комнат.  
+	 х - знак  это тип режима  для всей группы 
+	 xx - 2 знака нужной температуры днём для всей группы
+	 xx - 2 знака нужной температуры ночью для всей группы
+	 Rn - номер комнаты в группе
+	 xx - 2 знака текущей температуры в комнате
+	 х- знак  это тип состояния для комнаты. 0 - отопление не включено, 1 - включено. 
+	 х - знак  это тип режима для этой комнаты
+	 xx - 2 знака нужной температуры днём для этой комнаты
+	 xx - 2 знака нужной температуры ночью для этой комнаты
+	 */
+var out_config ;
+var headers = ["OFF", "ON", "Day&Night","Day","Night","-","-","-","-","  ","°c"];
+//var  tempArray  ; //if group have a room first is a avarage temp in all rooms in the group
+var tempArray = [[0],[0,0,0,0,0], [0],[0, 0,0],[0]];
+var auto_refresh=true;
+//var manual=true;
+var conf_loaded=false;
+var g1=false;
+var blink_s=false;
+var x10state =  [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]; //[[false],[false,false,false,false,false], [false],[false, false,false],[false]];//
+var au = '';
+var error_log;
+var x10_is_active = 0;
+var home_hour = "";
+var home_min = "";
+var utime = 1;
+var x10_override = 0;
+var  x10_override_off =0;
+var  kn =0;
+
+
+
+jQuery.ajaxSetup({async: false,timeout: 6010}); /*not to DDoS the Arduino, you might have to change this to some threshold value that fits your setup*/ 
+	  // $("#set_slider option[value='1']").text('UP') ;//= 'UPDATE';
+	
+/*function my_callback(json) {
+        //$('#debug').append("IP :" + json.IP + " \nCOUNTRY: " + json.COUNTRY);
+	//		browser_ip = json.IP; //alert("IP :" + json.IP + " \nCOUNTRY: " + json.COUNTRY);
+    }
+*/
+$(window).resize(function () { onChanged();});
+
+function onLoad(){
+   onChanged();
+
+	//						$("#debug").text("Starting");
+   check(1);
+   //draw_bar();
+//parse(true);
+				  //    	$('#out_temp').text(-23);
+				//		$('#out_temp_dec').text('.8');
+				//      	$('#out_hum').text('34%');
+		/*$.ajax({
+				type: "GET",
+				url: "http://chouck.com/res/hip.php?h=" + home_domain,
+				dataType: "xml",
+				success: function(xml) {
+					$(xml).find('hdns').each(function(){
+						home_ip = $(this).attr('hip');
+						browser_ip = $(this).attr('yip'); 		
+						ntp = $(this).attr('ntp'); 	
+						//alert('NTP time: ' + ntp  );						
+						})}						
+				});
+			*/	
+										//alert('NTP time: ' + ntp );
+//										start = new Date().getTime();
+	//	alert('Start time: ' + start);				
+	/*if  (browser_ip == home_ip)  
+		{	
+			//alert("you are home");		
+			$('#garage').css('background-color', '#00ff00');
+		}
+	else 
+		{	 
+			$('#garage').css('background-color', '#ff0000');
+		}
+		*/
+		
+
+}
+
+
+ //$('#set_slider').change(function()
+ function do_submit(){
+ 	var answer = confirm("Are you sure you want change HVAC?")
+	if (answer){	
+		
+ 	upd_button();
+ //	if (submit)
+	//{
+		//submit =0;
+		state = $("#select-temp option:selected").attr('state');
+		if (state > 0)
+		{
+			if ($("#select-temp option:selected").val() ==0 ) {  state = 4 ;} //venting
+			//alert(state + "=== "+$("#select-delay option:selected").attr('active') +" - "+$("#select-temp option:selected").attr('active'));
+			if (($("#select-delay option:selected").attr('active')==1) && ($("#select-temp option:selected").attr('active'))==1)	//&($("#set_slider option:selected").val() == 1))
+				{ //updating settings keeping  the control
+						state = 0;
+				}
+		}
+		news = 1;
+		get_ntp();	
+		$.post(local_url, { state: state, set_temp : $("#select-temp option:selected").val() , off_delay : $("#select-delay option:selected").val() , upd_interval : upd_interval  , delta_temp : delta_temp, ntp: end});
+		auto_refresh = true;
+		//var currentTime = new Date()
+		//var hours = currentTime.getHours()
+		//var minutes = currentTime.getMinutes()
+		//alert(hours+':'+minutes+'\n<br>');
+		//$('#debug').append('set at: '+hours+':'+minutes+'  state: '+state+', set_temp : '+$("#select-temp option:selected").val()+' , off_delay : '+$("#select-delay option:selected").val()+'\n<br>');
+		//check(0);
+	//} //submit
+	///do_apply()
+	}
+  }
+  //) //submit change
+
+  
+  $('#select-temp').change(function(){ 
+		upd_button(); 								
+  }) // change
+  
+  $('#select-delay').change(function(){ 
+		upd_button();
+  }) // change
+
+  $("#select-delay").hover(function() {
+    $(this).animate({
+        color: "red"
+    }, 2000);
+}, function() {
+    $(this).animate({
+        color: "black"
+    }, 2000);
+});
+
+ function upd_button(){
+		on_contr_change();
+		if (($("#select-delay option:selected").attr('active')==1) && ($("#select-temp option:selected").attr('active'))==1)
+			{ 
+
+				$('#set_button').text('OFF').button("refresh");
+				//$('#set_but').css('background-color', '#0000ff');
+			}
+			else { 
+						$('#set_button').text('SET').button("refresh");
+				//		$('#set_button').css('background-color', '#ffffff');
+			}
+		
+  } 
+  
+  function garage(){ 
+	//if  (browser_ip != home_ip)  
+		//{	
+			var answer = confirm("Are you sure you want to operate the Garage Door?")
+			if (answer){	
+				post_garage();
+			}
+//		}
+	//	else 	post_garage(); //alert("door!!!");	
+	}
+
+  function post_garage(){ 
+  					$.post(local_url, { garage: 1}); //
+					//alert("door!!!");		
+					g1 = !g1;
+					if  (g1) $('#garage').css('opacity', '0.3');
+						else $('#garage').css('opacity', '1');
+}	
+
+	function upd_h(){		
+											//$("#debug").text(1);
+										aux = $("#select-temp option[state='3']").val();
+										var f = true;
+								 		$("#select-temp option").each(function()	
+											{ 	
+												//if (($(this).val() < in_temp) &&($(this).attr('state') != 4 ) )
+												//	{	$(this).remove();		}
+												//	else
+												//	{
+														txt = $(this).text().replace('cool','heat');
+														if ($(this).attr('state') ==1 ) {$(this).attr('state','2'); $(this).text(txt) ; }//if ($(this).val()!=0) 
+														if (($(this).val()!=0)&&(!aux)) $("#select-temp").append($('<option></option>').val($(this).val()).text(txt.replace('heat','AUX heat') ).attr('state','3'));
+														if 	((state == 0) & ($(this).val()>(in_temp+delta_temp)) & (f)) 
+															{
+																$(this).attr('selected','selected'); 
+																f = false;
+															}
+												//	}
+												});	
+										if (state > 0) 	$('#set_button').css('background-color', '#ff0000');												
+									}
+	
+	function upd_c(){		
+								 		$("#select-temp option").each(function()	
+											{ 	
+												$(this).text($(this).text() .replace('heat','cool')) ;
+												if ($(this).attr('state') ==2 ) $(this).attr('state','1'); 
+												if ($(this).attr('state') ==3 ) $(this).remove(); //||($(this).val() < heat_temp)   ||($(this).val() > in_temp)) 
+												if 	((state == 0) & ($(this).val()<(in_temp-delta_temp)) &($(this).val()>0) ) 
+															{
+																$(this).attr('selected','selected'); 
+															}
+											});	
+										if (state > 0) 	$('#set_button').css('background-color', '#0000ff');
+			}
+			
+			
+    function check(upd){
+	//	submit =1;
+		if (auto_refresh)
+		{
+			$.ajax({
+				type: "GET",
+				url: local_url, //url: "ajax.xml",http://192.168.1.210/form
+				dataType: "xml",
+				success: function(xml) {
+						//				$("#debug").text(1);
+					$(xml).find('hvac').each(function(){
+						//		$("#debug").text(2);
+						if ($(this).attr('err'))  $('#debug').append($(this).attr('err')+"<br>");
+						$("#loading").hide();
+						$("#view").animate({ opacity: 0.1 }, 400);
+						in_temp = Math.round($(this).attr('i')*10)/10;
+				       	$('#in_temp').text(parseInt(in_temp));
+						$('#in_temp_dec').text('.'+Math.abs(Math.round((in_temp-parseInt(in_temp))*10)));
+						out_temp = Math.round($(this).attr('o')*10)/10;
+						//in1_temp = Math.round($(this).attr('i1')*10)/10;
+						//if (in1_temp != 0) $('#in1_temp').text(in1_temp);//parseInt(in1_temp)
+				      	$('#out_temp').text(parseInt(out_temp));
+						$('#out_temp_dec').text('.'+Math.abs(Math.round((out_temp-parseInt(out_temp))*10)));
+						in_h = $(this).attr('ih'); //0=just observing ,1 = controling HVAC
+						out_h = $(this).attr('oh'); //0=stop (maybe active),1 = cooling, 2=heat, 3= auxheat, 4= ventilation
+				      	$('#in_hum').text(in_h+'%');
+						$('#pressure').text(Math.round($(this).attr('pr')*0.0075));
+				      	$('#out_hum').text(out_h+'%');
+						//upd_interval = $(this).attr('upd_interval'); //reload valies from adriono every X seconds
+						active = $(this).attr('a'); //0=just observing ,1 = controling HVAC
+						state = $(this).attr('s'); //0=stop (maybe active),1 = cooling, 2=heat, 3= auxheat, 4= ventilation
+						s_state = $(this).attr('c'); //Shadow = observed state 0=stop (maybe active),1 = cooling, 2=heat, 3= auxheat, 4= ventilation
+						time_left = $(this).attr('l'); //till disactivation		
+						in_plenum = $(this).attr('p');
+						in_config = $(this).attr('xs');
+						utime = $(this).attr('n');
+						var date = new Date(utime*1000);
+							//date.getSeconds();
+						//				"23/10/2012 12:4"
+						home_hour = 	date.getUTCHours();
+					//	if (Number(home_hour) <10) home_hour = "0"+home_hour;
+						home_min = 	date.getUTCMinutes();
+						
+						var d = Math.floor(Number(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate(),date.getHours(),date.getMinutes(), date.getSeconds(),0)));
+						//alert (d);
+						if (Number(home_min) <10) home_min = "0"+home_min;
+						x10_is_active = $(this).attr('xa');
+						x10_override = $(this).attr('x10_override');
+						x10_override_off = $(this).attr('x10_override_off');
+						if ((x10_override_off) && (x10_override))
+							{
+								if (x10_override == 0) $("#select-x10").val(2).attr('selected','selected'); 
+									else $("#select-x10").val(x10_override).attr('selected','selected'); 
+								$("#select-x10").change();
+								if ((x10_override_off == 0) || (x10_override_off < utime))
+									{
+										//alert(x10_override_off);
+										$("#select-x10delay option[active='1']").remove();
+										//$("#select-x10delay").val(0).remove();
+										$("#select-x10delay option").each(function(){	if ($(this).val() ==0 ) $(this).remove(); //||($(this).val() < heat_temp)   ||($(this).val() > in_temp)) 
+													});	
+										$("#override").text("");
+										$("#select-x10delay").val(30).attr('selected','selected'); 
+									}
+									else 
+										{
+											var x10left_m = Math.round((x10_override_off - utime)/60);
+											var x10left_h = Math.floor(x10left_m/60);	
+											//alert(x10left_h + ":" + x10left_m);
+											x10left_m -= x10left_h*60;
+
+											var x10left;
+											if (x10left_h > 0) x10left = x10left_h+"h "+x10left_m+"m";
+												else x10left = x10left_m+"m";
+												
+											$("#override").html(":<span class=\"activeH\"> " +$("#select-x10 option:selected").text() + " for " + x10left + "</span>");
+											if (!$("#select-x10delay option[active='1']").val()) 
+												{
+													$("#select-x10delay").append($('<option></option>').val(x10left_h*60+x10left_m).text(x10left).attr('active','1'));
+													$("#select-x10delay").append($('<option></option>').val(0).text("OFF"));
+													//1351066918
+												}	
+												else
+												{
+														$("#select-x10delay option[active='1']").val(x10left_h*60+x10left_m);	
+														$("#select-x10delay option[active='1']").text(x10left) ;	
+												} 
+											$("#select-x10delay option[active='1']").attr('selected','selected');
+										}
+								$("#select-x10delay").change();
+								$("#select-x10").change();
+						}
+						//$("#select-temp option:selected").val()
+						bar = $(this).attr('b');
+						draw_bar();
+						//var ts = $(this).attr('n'); 	
+
+						error_log = $(this).attr('e');
+						if ($(this).attr('d') == 1) $('#dn_pic').attr('src', 'd.gif');			
+							else $('#dn_pic').attr('src', 'n.gif');			
+						if (error_log) $("#debug").text("Errors: "+ error_log);
+						in_time = $(this).attr('n');
+						//if (state == 0) //
+						if ((state == 0) & (in_temp > (out_temp + 5))) 	
+							{
+								$('#hvac').insertAfter('#col_set'); 
+								$("#hr1").hide();
+							}
+						kn = $(this).attr('w');
+						if (kn>0) $('#kn').text(kn+'kn');
+						color_wind();
+			//alert('s_state =' +s_state +'\nstate =' +state +'\n active = '+ active +'\n news = '+ news +'\n upd = '+ upd);
+						
+						if (in_plenum)
+								{
+								dif_temp = Math.round(in_plenum-in_temp);
+								//$('#state_icon_pic').attr('alt', '123');
+								/*if (dif_temp >0)
+									{
+										$('#in_plenum').text(Math.abs(dif_temp));
+										$('#in_plenum').css('color', '#ff0000');
+									}  
+								if (dif_temp <0)
+									{
+										$('#in_plenum').text(Math.abs(dif_temp));
+										$('#in_plenum').css('color', '#0000ff');
+									}*/
+								}						
+
+						//if (s_state == 0) { $('#state_icon_pic').attr('src', state_pic[state]);}
+						//else { 
+						$('#state_icon_pic').attr('src', state_pic[s_state]);
+						
+						if ((s_state>0) | (x10_is_active == 1)) 	$("#state_icon_pic").animate({ opacity: 1}, 500);	
+							else  $("#state_icon_pic").animate({ opacity: 0.15 }, 500); 
+
+						if ((state > 0) & (time_left >0))
+						{						
+							$('#state_icon_pic').attr('src', state_pic[state]);						
+							set_temp = $(this).attr('t'); 
+
+							if (active==1)  { 	$("#state_icon_pic").animate({ opacity: 1},500);	$("#in_plenum").animate({ opacity: 1}, 500);	} //active
+							else { $("#state_icon_pic").animate({ opacity: 0.15 }, 500); $("#in_plenum").animate({ opacity: 0.3 }, 500);}
+
+							if   ((state==2) | (state==3)) 	upd_h();
+							
+							if   (state==1)   upd_c();
+							
+							if   (state==4) 
+							{ 
+								if  ((in_temp > out_temp) && (heat_temp > out_temp)) ///intwmp CHANGE!!!
+								 { 	$('#debug').append('heat_temp='+heat_temp+': out_temp='+out_temp+'\n<br>'); upd_h();	}
+								else  { 	upd_c();	}
+							}
+							//a = $('#select-temp option[state='+state+']').val();
+		//	alert (a);
+							var ttext 
+								if (time_left == -1 ) {
+									//	ttext = 'forever' ;
+										$("#select-temp option[value='0']").attr('active','1'); 
+									}
+									else {
+												ttext ='for ' +time_left+' m' ;
+												if ((!$("#select-delay option[active='1']").val() )) {	$("#select-delay").append($('<option></option>').val(time_left).text(ttext).attr('active','1'));	}	
+												$("#select-delay option[active='1']").val(time_left);	
+												$("#select-delay option[active='1']").text(ttext) ;	
+											}
+											
+							$("#select-temp option[active='1']").text($("#select-temp option[active='1']").text().replace('lating','lation')) ; ///(t|l) to/	
+							$("#select-temp option[active='1']").text($("#select-temp option[active='1']").text().replace('ing to','  to')) ;
+							$("#select-temp option[active='1']").attr('active','0'); 
+							$("#select-temp option").each(function()	
+											{ 	
+												//$('#debug').append( $(this).attr('state') +'=='+state+'  '+$(this).val()+' =='+set_temp+'<br>');
+												if (($(this).attr('state') ==state )&&($(this).val() == set_temp)) 
+												{
+												//alert ($(this).attr('state') +'=='+state+'  '+$(this).val()+' =='+set_temp);
+													$(this).attr('selected','selected');
+													$(this).attr('active','1'); 
+													$(this).text($(this).text().replace('  to','ing to')) ; 
+													$(this).text($(this).text().replace('lation','lating')) ; 
+												}
+											});	
+							if (news)
+									{
+										$("#select-delay option[active='1']").attr('selected','selected'); 
+										$("#select-temp option[active='1']").attr('selected','selected');
+										news = 0;
+									}
+
+							//	$("#set_slider").val(1).attr('selected','selected'); 
+									//upd_button();
+											$('#set_button').text('OFF').button("refresh");
+						}//if (state > 0) 
+						else //(state == 0) 
+						{
+						
+								//var currentTime = new Date()
+								//var hours = currentTime.getHours()
+								//var minutes = currentTime.getMinutes()
+								//alert(hours+':'+minutes+'\n');
+								//$('#debug').append('state=>0  at '+hours+':'+minutes+'<br>\n');
+								//upd =0;
+								//f (s_state == 0) $('#in_plenum').text('');
+								$("#select-temp option[active='1']").text($("#select-temp option[active='1']").text().replace('lating','lation')) ; ///(t|l) to/	
+								$("#select-temp option[active='1']").text($("#select-temp option[active='1']").text().replace('ing to','  to')) ;
+								$("#select-temp option[active='1']").attr('active','0'); 
+								$("#select-delay option[active='1']").remove();
+
+								//$("#set_slider").val(0).attr('selected','selected'); 
+								upd_button();
+									// $("#debug").text(1);
+								if  ((in_temp > out_temp) && (heat_temp > out_temp))//& (15 < out_temp)) ///intwmp CHANGE!!!
+								 { 	upd_h();	}
+								else  { 	upd_c();	}
+						}
+						$("#select-temp").change();
+						$("#select-delay").change();
+					//	submit = 0; 	$("#set_slider").change(); 	submit = 1;
+						$("#view").animate({ opacity: 1}, 400);
+						//==============================================
+						parse(true);
+						//in1_temp = tempArray[1][4] ;
+						
+					}); //$XML
+				}
+			}); //ajax
+			//au += 'x';
+			//$("#debug").text(manual+au);
+		} //if auto refresh
+		if (upd == 1) 	{	t=setTimeout (function(){check(1);}, upd_interval*1000 ); }//reload valies from adriono every X seconds
+    }//check 
+
+
+function color_wind(){
+		$('#kn').css('text-shadow', '0px 0px 8px #DDFFFF');
+		if (kn>1) $('#kn').css('text-shadow', '0px 0px 8px #BBFFFF');
+		if (kn>4) $('#kn').css('text-shadow', '0px 0px 8px #99FFCC');
+		if (kn>7) $('#kn').css('text-shadow', '0px 0px 8px #99FF99');
+		if (kn>11) $('#kn').css('text-shadow', '0px 0px 8px #99FF66');
+		if (kn>17) $('#kn').css('text-shadow', '0px 0px 8px #99FF00');
+		if (kn>22) $('#kn').css('text-shadow', '0px 0px 8px #CCFF00');
+		if (kn>28) $('#kn').css('text-shadow', '0px 0px 8px #FFFF00');
+		if (kn>34) $('#kn').css('text-shadow', '0px 0px 8px #FFCC00');
+		if (kn>41) $('#kn').css('text-shadow', '0px 0px 8px #FF9900');
+		if (kn>48) $('#kn').css('text-shadow', '0px 0px 8px #FF6600');
+		if (kn>56) $('#kn').css('text-shadow', '0px 0px 8px #FF3300');
+		if (kn>=64) $('#kn').css('text-shadow', '0px 0px 8px #ff0000');
+		/*$('#kn').css('color', '#DDFFFF');
+		if (kn>1) $('#kn').css('color', '#BBFFFF');
+		if (kn>4) $('#kn').css('color', '#99FFCC');
+		if (kn>7) $('#kn').css('color', '#99FF99');
+		if (kn>11) $('#kn').css('color', '#99FF66');
+		if (kn>17) $('#kn').css('color', '#99FF00');
+		if (kn>22) $('#kn').css('color', '#CCFF00');
+		if (kn>28) $('#kn').css('color', '#FFFF00');
+		if (kn>34) $('#kn').css('color', '#FFCC00');
+		if (kn>41) $('#kn').css('color', '#FF9900');
+		if (kn>48) $('#kn').css('color', '#FF6600');
+		if (kn>56) $('#kn').css('color', '#FF3300');
+		if (kn>=64) $('#kn').css('color', '#ff0000');*/
+}	
+	
+	
+	function draw_bar()
+	{
+	//$("#debug").text("Starting");
+	if (bar.length ==24)
+	{
+			//var tmp ="";
+			//$("#debug").text(parseInt(bar[bar.length-1], 16));	
+				//$("#debug").text(bar);
+			var c = parseInt(bar[0], 16)*100/15;
+			var p = c- (parseInt(bar[1], 16)*100/15 - c)/2;
+			if (p < 0) p = 0;
+			if (p>100) p = 100;
+			$("#bar_0a").height(p+ '%');
+			$("#bar_0").height(c+ '%');
+			///$("#debug").text(p+" -> "+c);	
+			for( i=1;i<bar.length;i++) //Groups
+				{	
+					c= parseInt(bar[i], 16)*100/15;
+					p = (c+parseInt(bar[i-1], 16)*100/15)/2;
+					$("#bar_"+i).height(c+ '%');
+					$("#bar_"+i+"a").height(p+ '%');
+					//tmp += parseInt(bar[bar.length-1], 16)*100/15+ '%';
+					//$("#debug").text(bar[i]);	
+				}
+		}
+	//	$("#debug").text(tmp);	
+	}
+
+function blink_state(m){
+		if (blink_s)
+		{
+			$("#state_icon_pic").css('opacity', 0);
+			$('#state_icon_pic').attr('src', state_pic[5]);	
+			if (x10_is_active == 1) $("#state_icon_pic").animate({ opacity: 1}, 500);
+				else $("#state_icon_pic").animate({ opacity: 0.15}, 500);
+			setTimeout(function() {$("#state_icon_pic").animate({ opacity: 0}, 500);},1500);
+			setTimeout(function() {blink_1(m);},2000);
+		}
+}	
+
+function blink_1(m){
+		if (blink_s)
+		{
+			$('#state_icon_pic').attr('src', m);		
+			if (s_state>0) $("#state_icon_pic").animate({ opacity: 1}, 500);
+				else $("#state_icon_pic").animate({ opacity: 0.15}, 500);
+			setTimeout(function() {$("#state_icon_pic").animate({ opacity: 0}, 500);},1500);
+			setTimeout(function() {blink_state(m);},2000);
+		}
+}	
+
+function parse(m){
+		//manual = false;
+		if (in_config.length > 19)
+			{ 	 
+			$("#apply").show(); 
+			if (m) 
+					{
+						blink_s = false;
+						if (in_config.charAt(0) == '9')
+							{
+								$("#state_icon_pic").css('opacity', 0);
+								if ($('#state_icon_pic').attr('src') == "1x1.gif") 
+								{
+									$('#state_icon_pic').attr('src', state_pic[5]);		
+								//	$("#state_icon_pic").animate({ opacity: 1}, 500);
+									//$("#debug").text(0);
+								}
+									else 
+									{
+										blink_s = true;
+										blink_state ($('#state_icon_pic').attr('src'));
+									}
+							}		
+						
+						var par = "";
+						if (in_config.charAt(0) == '9')	par = "Day " +Number(in_config.substring(1,3))+ "-" +Number(in_config.substring(5,7))+ "h";
+						$("#h-g0").html(headers[in_config.charAt(0)] + " " +par + " <i>(now " +home_hour+ ":" +home_min+")</i>");
+						
+						
+						if (!conf_loaded)
+							{
+								$("#action-g0").val(in_config.charAt(0));
+								$("#action-g0").selectmenu("refresh",true);
+								$("#action-g0").change(function(){ on_contr_change();});	
+								$("#select-d").val(in_config.substring(1,3));
+								$("#select-d").selectmenu("refresh",true);
+								$("#select-d").change(function(){ on_contr_change();});	
+								$("#select-n").val(in_config.substring(5,7));
+								$("#select-n").selectmenu("refresh",true);			
+								$("#select-n").change(function(){ on_contr_change();});	
+							}
+					}
+					else 
+					{
+						out_config = "";
+						out_config +=  $("#action-g0").val();
+						out_config +=  $("#select-d").val()+"00";
+						out_config +=  $("#select-n").val()+"00";
+					}
+						var gUnit = in_config.split("g");
+						for( i=1;i<gUnit.length;i++) //Groups
+						{
+							var cur = gUnit[i];
+							var gid = cur.charAt(0); 
+							out_config += "g";
+
+							var ct = refreshUnit(gid,cur,m);
+							tempArray[gid][0]  =ct;							
+							if ((ct) && (ct!= 0))  $("#in"+gid+"-0_temp").text(Math.round(ct));		
+							var rUnit = cur.split("r");
+							
+							for(j=1;j<rUnit.length;j++) //Rooms
+								{
+									var cur = rUnit[j];
+									var rid = gid+"-"+cur.charAt(0); 
+									out_config += "r";
+									var ct = refreshUnit(rid,cur,m);
+									tempArray[gid][cur.charAt(0)]  =ct;
+									//$("#in"+(gid+1)+"-"+(cur.charAt(0)+1)+"_temp").text(ct);
+									if ((ct) && (ct!= 0))  $("#in"+gid+"-"+cur.charAt(0)+"_temp").text(Math.round(ct));
+								} //rUnit ROOMS
+						}//gUnit GROUPS
+					conf_loaded  = true;
+				} // >19
+			else $("#apply").hide(); 
+			//manual = true;
+	}
+	
+	
+	function refreshUnit(cid,cur,m) {
+		if (m) 
+			{
+				var t = Number(cur.substring(1,4))/10;
+				var temp = "<span class=\"activeL\">"+t+"</span>";
+				var gr = '';
+				if 	(cid.length<3)	gr = '-0';	
+				$('#in'+cid+	gr+'_temp').css('opacity', 0.4);
+				$('#in'+cid+	gr+'_temp').css('text-shadow', '');
+				if (cid == '2') $('#in_temp').css('text-shadow', '');
+				if (cur.charAt(4) == 1) 
+					{ 
+						temp = "<span class=\"activeH\">"+t+"</span>";
+						$('#in'+cid+	gr+'_temp').css('opacity', 1);
+						$('#in'+cid+	gr+'_temp').css('text-shadow', '0px 0px 1px #FF5555');
+						if (cid == '2')$('#in_temp').css('text-shadow', '0px 0px 1px #FF5555');
+						//alert('#in'+cid+'_temp');
+					}
+				$("#h-g"+cid).html(headers[cur.charAt(5)] + " " +temp+ headers[10]);
+				if (!conf_loaded)
+					{
+						$("#action-g"+cid).val(cur.charAt(5));	
+						$("#action-g"+cid).selectmenu("refresh",true);
+						$("#select-dtem-g"+cid).val(cur.substring(6,8));
+						$("#select-dtem-g"+cid).selectmenu("refresh",true);
+						$("#select-ntem-g"+cid).val(cur.substring(8,10));
+						$("#select-ntem-g"+cid).selectmenu("refresh",true);
+						$("#action-g"+cid).change(function(){  
+						refreshTemp($("#action-g"+cid+" option:selected").val(),"#g"+cid); 
+								//on_contr_change(); 
+								});
+						//$("#select-dtem-g"+cid).change(function(){ on_contr_change();});
+						//$("#select-ntem-g"+cid).change(function(){ on_contr_change();});				//if (cur.charAt(4) != 9 ) $("#col-g"+cid).hide(); 
+						//	else 	$("#col-g"+cid).show();
+						refreshTemp(cur.charAt(5),"#g"+cid);
+					}
+			}
+			else
+			{
+				out_config += cur.charAt(0);
+				out_config += $("#action-g"+cid).val();
+				out_config += $("#select-dtem-g"+cid).val();
+				out_config += $("#select-ntem-g"+cid).val();
+			}
+			return t;
+	}
+	
+	function on_contr_change() {
+	//if (manual) 
+						{
+							//auto_refresh = false; 
+							//t=setTimeout (function(){auto_refresh=true;}, upd_interval*4*1000 );
+						}
+	}
+	
+	function refreshTemp(mode,id) {
+	   	if (mode==3) 
+			{ 
+			$(id+"d").show();
+			$(id+"n").hide();
+				//$(id+"d").fadeIn("slow", function () $(id+"d").show());
+			//	$(id+"n").fadeOut("slow", function () $(id+"n").hide());
+			}
+			else { 
+					if (mode==2) 
+					{ 
+					$(id+"d").show();
+					$(id+"n").show();
+					//	$(id+"d").fadeIn("slow", function () $(id+"d").show());
+					//	$(id+"n").fadeIn("slow", function () $(id+"n").show());
+					}
+					else { 
+					$(id+"d").hide();
+					$(id+"n").hide();
+						//	$(id+"d").fadeOut("slow", function () {$(id+"d").hide("slow")});
+						//	$(id+"n").fadeOut("slow", function () {$(id+"n").hide()});
+							}
+					}
+		//	if (mode != 9 ) alert(id.substring(2))//$("#col-g"+id.substring(2)).hide(); 
+		//			else 	$("#col-g"+id.substring(2)).show();
+		}
+function	do_apply()	
+{ 
+	parse(false);
+	//$("#debug").text(out_config);
+	//$("#debug").text(tempArray);
+	get_ntp();	
+	$.post(local_url, { xs: out_config, upd_interval : upd_interval  , delta_temp : delta_temp, ntp: end, poolt: poolt, poolf: poolf});
+	auto_refresh = true;
+	t=setTimeout (function(){check(0);}, 6000 ); 
+    }//);
+
+function	do_override()	
+{
+ 	parse(false);
+	//$("#debug").text(out_config);
+	//$("#debug").text(tempArray);
+	//get_ntp();	
+	x10_override = $("#select-x10 option:selected").val();
+	x10_override_off = Number(utime) + $("#select-x10delay option:selected").val()*60;
+	$.post(local_url, { x10_override: x10_override, x10_override_off: x10_override_off});
+	auto_refresh = true;
+	t=setTimeout (function(){check(0);}, 6000 ); 
+    }//);	
+	
+	
+function get_ntp() {	
+	end = new Date().getTime();
+//	if (ntp) end = ntp+(end- start+3);
+	end = Math.round(end/1000);		
+	//alert (ntp);
+	//alert ("end");
+	}
+	
+function x10(id) {
+	$.post(local_url, { x10: id});
+	x10state[id-1] =  !x10state[id-1];
+		if  (x10state[id-1]) $('#x10-'+id).css('opacity', 1);
+						else $('#x10-'+id).css('opacity', 0.3);	//
+	//alert("x10 ="+id);	
+    }
+	
+function onChanged(){
+   var dw = 450;//450 is used based on scale for house pic and others
+   var device_width = $(window).width()/dw; 
+
+		
+	var l= $('#house');
+		l.css('left', device_width*33 + 'px');
+		
+	var l= $('#lightB');
+		l.css('left', device_width*5 + 'px');
+		l.css('top', device_width*47 + 'px');
+		l.css('width', device_width*46 + 'px');
+		l.css('height', device_width*111 + 'px');
+		
+	var l= $('#lightF');
+		l.css('top', device_width*47 + 'px');
+		l.css('left', device_width*258 + 'px');
+		l.css('width', device_width*48 + 'px');
+		l.css('height', device_width*51 + 'px');
+
+	var l= $('#garage');
+		l.css('top', device_width*81+ 'px');
+		l.css('left', device_width*230 + 'px');
+		l.css('width', device_width*76 + 'px');
+		l.css('height', device_width*77 + 'px');
+		
+	var l= $('#house_pic');
+		l.width(device_width*242+ 'px');
+		l.height(device_width*157+ 'px');
+		//l.css('left', device_width*60 + 'px');
+
+   	var l= $('#loading');
+		l.css('top', $('#house').height()/3 + 'px');
+		l.css('left', device_width*5 + 'px');
+		l.css('width', device_width*450 + 'px');
+		$('#loading').css('font-size', device_width*27 + 'px');		
+		
+	var l= $('#view');
+		l.height($('#house_pic').height());
+		//l.css('left', device_width*60 + 'px');
+	
+	var l= $('#inside');
+		l.height($('#house_pic').height());
+		l.width( $('#lightB').width()+$('#lightF').width()+$('#house').width()-device_width*32);
+		
+	var l= $('#in_t');
+		l.css('top', device_width*43 + 'px');
+		l.css('left', device_width*34 + 'px');
+		l.css('width', device_width*125 + 'px');
+
+	$('.temp_cap').css('font-size', device_width*78 + 'px');
+	$('#out_temp').css('font-size', device_width*90 + 'px');
+	$('.temp_dec').css('font-size', device_width*35 + 'px');
+	$('.temp_deg').css('font-size', device_width*28 + 'px');
+	$('.temp_add').css('font-size', device_width*45 + 'px');
+	$('.pressure').css('font-size', device_width*30 + 'px');
+	$('.pressure_mm').css('font-size', device_width*13 + 'px');
+		
+	$('.h_cap').css('font-size', device_width*32 + 'px');
+	
+	var l= $('#in1-1_temp');
+		l.css('top', device_width*32 + 'px');
+		l.css('left', device_width*24 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+	
+	var l= $('#in1-2_temp');
+		l.css('top', device_width*9 + 'px');
+		l.css('left', device_width*72 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+
+	var l= $('#in1-3_temp');
+		l.css('top', device_width*9+ 'px');
+		l.css('left', device_width*122 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+
+	var l= $('#in1-4_temp');
+		l.css('top', device_width*30+ 'px');
+		l.css('left', device_width*172 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+		
+	var l= $('#in3-1_temp');
+		l.css('top', device_width*76 + 'px');
+		l.css('left', device_width*24 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+	
+	var l= $('#in3-2_temp');
+		l.css('top', device_width*86 + 'px');
+		l.css('left', device_width*172 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+		
+	var l= $('#in4-0_temp');
+		l.css('top', device_width*109 + 'px');
+		l.css('left', device_width*126 + 'px');
+		//l.css('font-size', device_width*55 + 'px');
+				
+	var l= $('#in_h');
+		l.css('top', device_width*124 + 'px'); //15
+		l.css('left', device_width*24 + 'px'); //82
+	
+	var l= $('#in_c');
+		l.css('top', device_width*48 + 'px');
+		l.css('left', device_width*136 + 'px');
+		
+				
+	var l= $('#dn');
+		l.css('top', device_width*2 + 'px');
+		l.css('left', device_width*2 + 'px');
+		l.css('width', device_width*37 + 'px');
+		l.css('height', device_width*37 + 'px');		
+
+		
+	var l= $('#outside');
+		l.css('bottom', $('#inside').height());
+		l.css('left', $('#inside').width());
+		l.css('height', $('#inside').height());
+		l.css('width', $(window).width()-$('#inside').width());
+
+	var l= $('#out');
+		//l.css('top', device_width*2 + 'px');
+		l.css('right', device_width*70 + 'px');
+		l.css('font-size', device_width*23 + 'px');		
+		
+	var l= $('#out_c');
+		l.css('top', device_width*25 + 'px');
+		l.css('right', device_width*10 + 'px');
+		//l.css('font-size', device_width*10 + 'px');		
+		
+	var l= $('#kn');
+		l.css('top', device_width*2 + 'px');
+		l.css('right', device_width*00 + 'px');
+		//l.css('font-size', device_width*10 + 'px');		
+			$('#kn').css('font-size', device_width*18 + 'px');
+
+	var l= $('#out_t');
+		l.css('top', device_width*10 + 'px');
+		l.css('right', device_width*15 + 'px');
+//		l.css('width', device_width*195 + 'px');
+		
+	var l= $('#out_h');
+		l.css('bottom', device_width*0 + 'px');
+		l.css('right', device_width*17 + 'px');
+		
+	var l= $('#bar');
+		//l.width(device_width*48+ 'px');
+		//.height(device_width*32+ 'px');
+		l.css('bottom', device_width*34 + 'px');
+		l.css('right', device_width*15 + 'px');
+		l.css('width', device_width*72 + 'px');
+		l.css('height', device_width*32 + 'px');		
+		
+	var l= $('#press');
+		l.css('bottom', device_width*36 + 'px');
+		l.css('right', device_width*10 + 'px');
+		l.css('width', device_width*72 + 'px');
+		l.css('height', device_width*32 + 'px');		
+		
+	var l= $('#in_plenum');
+		l.css('top', device_width*81 + 'px');
+		l.css('left', device_width*188 + 'px');
+		l.css('font-size', device_width*35 + 'px');
+	
+	var l= $('#state_icon');
+		l.css('top', device_width*113 + 'px');
+		l.css('left', device_width*78 + 'px');
+		
+	var l= $('#state_icon_pic');
+		l.width(device_width*41+ 'px');
+		l.height(device_width*43+ 'px');
+	
+	//	$("#in4-0_temp").removeAttribute('text-shadow');
+	//$('#in4-0_temp').css('text-shadow', null);
+	
+//alert ($('#in4-0_temp').css('text-shadow'));  // #in4-0_temp
+//	if ($('#in_t').css('text-shadow').length > 30)	$('#in_t').css('text-shadow', '0px 0px '+device_width+'px #FF5555');
+//		if ($('#in1-1_temp').css('text-shadow').length > 30)	$('#in_t').css('text-shadow', '0px 0px '+device_width*2+'px #FF5555');
+
+} // onChanged
+
+//})
+
+
+
+</script>
+  </body>
+</html>
